@@ -1,4 +1,4 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 import java.io.StringWriter;
 import java.util.HashMap;

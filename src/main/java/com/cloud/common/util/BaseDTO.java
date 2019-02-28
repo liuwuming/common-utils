@@ -1,13 +1,7 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 import java.io.Serializable;
 
-/**
- * @ClassName: BaseDTO
- * @Description: 所有dto的超类（DTO为web入参对象）
- * @author: wangkaifei
- * @date: 2019年2月20日 下午12:27:40
- */
 public class BaseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -1,7 +1,7 @@
-package com.zfec.common.filter;
+package com.cloud.common.filter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -19,11 +19,12 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import com.zfec.common.util.JWTUtils;
-import com.zfec.common.util.JsonUtils;
-import com.zfec.common.util.ResponseCode;
-import com.zfec.common.util.ResponseData;
-import com.zfec.common.util.StringUtil;
+
+import com.cloud.common.util.JWTUtils;
+import com.cloud.common.util.JsonUtils;
+import com.cloud.common.util.ResponseCode;
+import com.cloud.common.util.ResponseData;
+import com.cloud.common.util.StringUtil;
 
 @WebFilter(filterName = "HttpBasicAuthorizeFilter", urlPatterns = { "/*" })
 @Order(FilterRegistrationBean.LOWEST_PRECEDENCE)

@@ -1,4 +1,4 @@
-package com.zfec.common.interceptor;
+package com.cloud.common.interceptor;
 
 import java.util.UUID;
 
@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
-import com.zfec.common.util.JWTUtils;
+import com.cloud.common.util.JWTUtils;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

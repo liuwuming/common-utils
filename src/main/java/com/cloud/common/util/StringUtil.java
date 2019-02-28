@@ -1,4 +1,4 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zfec.common.enums.AbstractEnum;
 
 /**
  * @author yzh
@@ -185,35 +184,6 @@ public class StringUtil {
 		return stringBuilder.toString();
 	}
 
-	/**
-	 * 将数组使用join给定连接符连接，不保留null连接
-	 * @param separator 连接符
-	 * @param ss 待连接数组
-	 * @return java.lang.String
-	 * @since yswf-2.0
-	 * @author DaiZM
-	 * @date 2018/04/10
-	 */
-	@SafeVarargs
-	public static <T> String join(String separator, T... ss) {
-
-		StringBuilder sb = new StringBuilder("");
-		for (int i = 0; i < ss.length; i++) {
-			T t = ss[i];
-			if (t == null || StringUtils.isEmpty(t.toString())) {
-				continue;
-			}
-			if (i != 0) {
-				sb.append(separator);
-			}
-			if (t instanceof AbstractEnum) {
-				sb.append(((AbstractEnum) t).getCode());
-			} else {
-				sb.append(t);
-			}
-		}
-		return sb.toString();
-	}
 
 	/**
 	 * 关联字符串，保留null连接

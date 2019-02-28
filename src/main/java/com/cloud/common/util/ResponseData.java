@@ -1,4 +1,4 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

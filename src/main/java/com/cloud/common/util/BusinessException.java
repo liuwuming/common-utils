@@ -1,11 +1,5 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
-/**
- * @ClassName: BusinessException
- * @Description: BusinessException类
- * @author: wangkaifei
- * @date: 2019年2月11日 下午12:28:06
- */
 public class BusinessException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

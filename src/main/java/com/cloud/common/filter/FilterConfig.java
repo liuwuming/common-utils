@@ -1,4 +1,4 @@
-package com.zfec.common.filter;
+package com.cloud.common.filter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

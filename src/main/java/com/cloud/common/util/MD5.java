@@ -1,4 +1,4 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 public class MD5 {
 	static final int S11 = 7;

@@ -1,4 +1,4 @@
-package com.zfec.common.util;
+package com.cloud.common.util;
 
 import java.util.Date;
 import java.util.Random;
