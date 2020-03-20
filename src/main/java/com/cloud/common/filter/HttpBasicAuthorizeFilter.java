@@ -30,8 +30,8 @@ import com.cloud.common.util.StringUtil;
 @Order(FilterRegistrationBean.LOWEST_PRECEDENCE)
 public class HttpBasicAuthorizeFilter implements Filter {
 	private static Logger log = LoggerFactory.getLogger(HttpBasicAuthorizeFilter.class);
-	JWTUtils jwtUtils = JWTUtils.getInstance();
-	ServletContext context = null;
+	public JWTUtils jwtUtils = JWTUtils.getInstance();
+	public ServletContext context = null;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		context = filterConfig.getServletContext();
@@ -65,25 +65,23 @@ public class HttpBasicAuthorizeFilter implements Filter {
 					throw new RuntimeException(errStr);
 				} catch (RuntimeException e) {
 					log.error(errStr);
-//					e.printStackTrace();
 				}
 
 				return;
 			}
-			String id = httpRequest.getParameter("id");
-			String orgId=httpRequest.getParameter("orgId");
-			if(StringUtil.isEmpty(id) || StringUtil.isEmpty(orgId)) {	
-				log.warn("id or orgId is null");
-			String paramEerrStr = JsonUtils.toJson(ResponseData.fail("PATH: " + uri + " 非法请求【缺少参数】", ResponseCode.PARAM_ERROR_CODE.getCode()));             
-			try {
-				throw new RuntimeException(paramEerrStr);
-			} catch (RuntimeException e) {
-				log.error(paramEerrStr);
-			}
-			return;
-		}	
+			String uid = httpRequest.getParameter("uid");
+			if(StringUtil.isEmpty(uid)) {	
+				log.warn("uid is null");
+				String paramEerrStr = JsonUtils.toJson(ResponseData.fail("PATH: " + uri + " 非法请求【缺少参数】", ResponseCode.PARAM_ERROR_CODE.getCode()));             
+				try {
+					throw new RuntimeException(paramEerrStr);
+				} catch (RuntimeException e) {
+					log.error(paramEerrStr);
+				}
+				return;
+			}	
 			
-			JWTUtils.JWTResult jwt = jwtUtils.checkToken(token,id);
+			JWTUtils.JWTResult jwt = jwtUtils.checkToken(token,uid);
 			if (!jwt.isStatus()) {
 				log.info("----------------------------------------------------> {}---check token failed", uri);
 				
@@ -95,7 +93,6 @@ public class HttpBasicAuthorizeFilter implements Filter {
 					throw new RuntimeException(errStr);
 				} catch (RuntimeException e) {
 					log.error(errStr);
-//					e.printStackTrace();
 				}
 				
 				return;

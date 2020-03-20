@@ -58,6 +58,10 @@ public class JWTUtils {
 				.signWith(SignatureAlgorithm.RS512, priKey).compact();
 	}
 
+	
+	public static void main(String[] args) {
+		System.out.println(getToken("123456"));
+	}
 	/**
 	 * 获取Token,有效时间是30天
 	 * @param uid 用户ID
