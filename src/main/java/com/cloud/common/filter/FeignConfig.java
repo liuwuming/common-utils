@@ -19,7 +19,9 @@ public class FeignConfig implements RequestInterceptor {
         ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         //添加token
-        requestTemplate.header("token", request.getHeader("token"));
+        String token = request.getHeader("token");
+        requestTemplate.header("token", token);
+        logger.info("FeignConfig header token ="+token);
     }
 }
 
